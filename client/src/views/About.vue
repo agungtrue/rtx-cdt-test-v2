@@ -142,9 +142,6 @@ export default {
       // means was 0, else just do pagination things
       const offset = sizeParams ? 0 : ((pageParams || this.currentPage) - 1) * this.pageSize;
       const limit = sizeParams || this.pageSize;
-      console.info({
-        offset, limit, pageParams, sizeParams,
-      });
 
       // update state
       if (pageParams) {
@@ -161,7 +158,6 @@ export default {
       this.pageSize = 5;
     },
     async updateProperty({ id }) {
-      console.info({ id });
       this.$router.push(`/fact/${id}`);
     },
     async deleteProperty({ id }) {
@@ -182,10 +178,6 @@ export default {
             }
           },
         });
-        // const { apiUrl } = config;
-        // await axios.delete(`${apiUrl}/property/${id}`); // start delete
-        // await this.getHotels(); // refresh page
-        // this.resetPages(); // back into default pages
       } catch (e) {
         console.error({ message: e.message });
       }
